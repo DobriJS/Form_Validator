@@ -39,3 +39,27 @@ function checkRequired(inputArr) {
         }
     });
 }
+
+// Check input length
+function checkLength(input, min, max) {
+    if (input.value.length < min) {
+        showError(
+            input,
+            `${getFieldName(input)} must be at least ${min} characters`
+        );
+    } else if (input.value.length > max) {
+        showError(
+            input,
+            `${getFieldName(input)} must be less than ${max} characters`
+        );
+    } else {
+        showSuccess(input);
+    }
+}
+
+// Check passwords match
+function checkPasswordsMatch(input1, input2) {
+    if (input1.value !== input2.value) {
+        showError(input2, 'Passwords do not match');
+    }
+}
